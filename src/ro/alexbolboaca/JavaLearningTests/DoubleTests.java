@@ -118,13 +118,6 @@ public class DoubleTests {
 		assertDoesntCompareWithNaN(new Double(21972493785293872895.29735092347520983572903));		
 	}
 
-	private void assertDoesntCompareWithNaN(double positiveInfinity) {
-		assertFalse(positiveInfinity > Double.NaN);
-		assertFalse(positiveInfinity >= Double.NaN);
-		assertFalse(positiveInfinity < Double.NaN);		
-		assertFalse(positiveInfinity <= Double.NaN);
-	}
-
 	@Test
 	public void infinitiesAreDifferentFromNAN() throws Exception {
 		assertThat(Double.NEGATIVE_INFINITY, is(not(Double.NaN)));
@@ -141,5 +134,12 @@ public class DoubleTests {
 	public void infinitiesAreDifferentFromMax() throws Exception {
 		assertThat(Double.NEGATIVE_INFINITY, is(not(Double.MAX_VALUE)));
 		assertThat(Double.POSITIVE_INFINITY, is(not(Double.MAX_VALUE)));
+	}
+
+	private void assertDoesntCompareWithNaN(double positiveInfinity) {
+		assertFalse(positiveInfinity > Double.NaN);
+		assertFalse(positiveInfinity >= Double.NaN);
+		assertFalse(positiveInfinity < Double.NaN);		
+		assertFalse(positiveInfinity <= Double.NaN);
 	}
 }
